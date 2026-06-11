@@ -1,4 +1,4 @@
-# GenZ-Social-Media-Addiction-Predictor
+# GenZ Social Media Addiction Predictor
 
 ## Overview
 
@@ -12,7 +12,7 @@ Social media addiction in Gen Z is a growing concern linked to declining mental 
 
 | Field | Detail |
 |---|---|
-| Source | Synthetic Gen Z social media usage dataset |
+| Source | [Gen Z Social Media Usage Dataset — Kaggle](https://www.kaggle.com/datasets/sharmajicoder/gen-z-social-media-usage-dataset) |
 | Records | 1,000,000 |
 | Features | 11 (9 input features after target removal) |
 | Target Variable | `addiction_level` — Ordinal: Low / Medium / High |
@@ -41,6 +41,9 @@ Social media addiction in Gen Z is a growing concern linked to declining mental 
 | Low | 251,220 | 25.1% |
 | High | 158,937 | 15.9% |
 
+> **Download the dataset:** [kaggle.com/datasets/sharmajicoder/gen-z-social-media-usage-dataset](https://www.kaggle.com/datasets/sharmajicoder/gen-z-social-media-usage-dataset)
+> The dataset is not included in this repository due to its size (1M rows). Download it from Kaggle and place it in the project root before running the notebook.
+
 ## Technologies Used
 
 | Category | Libraries |
@@ -50,7 +53,7 @@ Social media addiction in Gen Z is a growing concern linked to declining mental 
 | Statistics | SciPy |
 | Machine learning | Scikit-Learn, XGBoost |
 | Notebook | Jupyter Notebook |
-
+| Model persistence | joblib |
 
 ## Project Workflow
 
@@ -96,6 +99,7 @@ Feature selection was performed using Random Forest importances — features wit
 - **Cross-validation**: 5-fold CV on XGBoost using macro F1 scoring
 
 ### 7. Insights
+
 - `daily_usage_hours`, `avg_session_minutes`, and `screen_time_before_sleep` are the top predictors of addiction level
 - `night_usage` adds signal beyond simple usage volume
 - `mental_health_score` shows an inverse relationship with addiction level — higher addiction correlates with lower self-reported mental health
@@ -133,4 +137,5 @@ The notebook generates the following plots:
 - **SHAP explanations**: Per-prediction explainability for transparency and trust
 - **Resampling**: Address class imbalance (High = 15.9%) with SMOTE or class-weight tuning
 - **Temporal features**: If timestamps were available, session frequency and recency patterns could improve recall on High-addiction cases
+
 
